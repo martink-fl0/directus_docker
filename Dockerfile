@@ -1,9 +1,9 @@
 FROM node:latest
 
-COPY package.json .env ./
+COPY package.json .env bootstrap_and_start.sh ./
 
 EXPOSE 8055
 
-RUN npx directus bootstrap
+RUN chmod +x ./bootstrap_and_start.sh
 
-CMD ["npm", "run", "start"]
+CMD ["bootstrap_and_start.sh"]
